@@ -1,9 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
 import logo from './logo.svg';
 import './Todo.css';
 import Mycode from './mycode'
 
 function Todo() {
+  var myVar = "new variable";
+  const [count, setCount] = useState(0);
+  const [childCount, setChildCount] = useState(0);
+  function toDoClick(e){
+    setCount(count+1);
+  }
+  function callBackFromChild(){
+    setChildCount(childCount+1);
+  }
   return (
     <div className="App">
       <header className="App-header">
@@ -11,8 +20,11 @@ function Todo() {
         <p>
           This is my code
           {/* Edit <code>src/Todo.js</code> and save to reload. */}
-        </p>
-        <Mycode/>
+        </p>   
+        {/* <button onClick={()=>setCount(count+1)}>ToDo Click!</button>  */}
+        <button onClick={toDoClick}>ToDo Click!</button>
+        <Mycode variableFromTodo={myVar} countFromTodo={count} parentCallback={callBackFromChild}/>
+        <div>Child button clicked {childCount} times</div>
         <a
           className="App-link"
           href="https://reactjs.org"
