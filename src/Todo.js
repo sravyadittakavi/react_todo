@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import logo from './logo.svg';
 import './Todo.css';
 import Mycode from './mycode'
+import Task from './Task'
 
 function Todo() {
   var myVar = "new variable";
@@ -25,6 +26,9 @@ function Todo() {
         <button onClick={toDoClick}>ToDo Click!</button>
         <Mycode variableFromTodo={myVar} countFromTodo={count} parentCallback={callBackFromChild}/>
         <div>Child button clicked {childCount} times</div>
+        <section>
+          <Task/>
+        </section>
         <a
           className="App-link"
           href="https://reactjs.org"
